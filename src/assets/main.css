@@ -1,0 +1,150 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #1f2937;
+  background: #f5f7fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.page__header {
+  margin-bottom: 24px;
+}
+
+.page__header h1 {
+  margin: 0 0 8px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.filters__input,
+.filters__select,
+.filters__button {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+}
+
+.filters__button {
+  cursor: pointer;
+}
+
+.table-card,
+.state-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.state-card {
+  padding: 24px;
+}
+
+.state-card--error {
+  border-color: #ef4444;
+}
+
+.results-count {
+  margin: 0 0 12px;
+}
+
+.domain-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.domain-table th,
+.domain-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.domain-table th {
+  background: #f9fafb;
+}
+
+.table__action {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+.empty-state {
+  padding: 24px;
+}
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.drawer {
+  width: min(420px, 100%);
+  height: 100%;
+  background: white;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.drawer__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.detail-list {
+  display: grid;
+  gap: 16px;
+}
+
+.detail-row {
+  display: grid;
+  gap: 6px;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding: 20px 16px;
+  }
+
+  .domain-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
