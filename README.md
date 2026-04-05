@@ -275,6 +275,6 @@ Typical errors:
 
 - move filtering and pagination to the backend for scalability
 - improve drawer accessibility (right now can only really be accessed with mouse)
-- expand test on test
-- improve loading and error states
+- expand on more testing (integration and E2E testing)
+- improve loading and error states (upgrade to spinners)
 - connect the UI to a real backend API
