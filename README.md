@@ -16,6 +16,8 @@ npm install
 npm run dev
 ```
 
+Click on the link to the localhost, most likely http://localhost:5173/
+
 ### Run tests
 
 ```bash
