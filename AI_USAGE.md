@@ -133,8 +133,6 @@ Styling requirements:
 2. The table should be scrollable X axis wise if it overflows out of the screen
 3. Include clear spacing, padding, borders, border-radius
 
-- added formatDates after, added StatusBadge
-
 ### FilterBar
 
 Build a component called FilterBar using Vue 3, JavaScript, and scoped CSS.
@@ -180,9 +178,6 @@ Styling requirements:
 
 3. Input and select controls should have consistent styling
 4. Include clear spacing, padding, borders, border-radius, and focus styles
-
-- added onEnter on search bar so we are not prompting the API on every key press
-- CSS changes
 
 ### DomainDetailsDrawer
 
@@ -231,7 +226,3 @@ Styling requirements:
 8. include clear spacing between sections
 9. use a vertical detail layout
 10. each detail will be it's own row
-
-- css fixes
-- added StatusBadge component and formatDate function
-- error handling and empty states
