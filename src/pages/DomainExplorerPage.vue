@@ -79,6 +79,7 @@ async function loadDomains() {
 
   try {
     // toggle here to simulate error
+    // shouldFail is false to load domains successfully, true to simulate an error
     domains.value = await getDomains({ shouldFail: false })
   } catch (err) {
     error.value = err instanceof Error ? err.message : 'Failed to load domain records'

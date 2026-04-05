@@ -191,7 +191,7 @@ GET /api/domains
 ### Example request
 
 ```http
-GET /api/domains?page=1&pageSize=10&domain=string&registrar=string&status=string
+GET /api/domains?page=number&pageSize=number&domain=string&registrar=string&status=string
 ```
 
 ### List response
