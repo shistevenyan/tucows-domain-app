@@ -104,15 +104,19 @@ DomainTable component will pass in one prop:
 
 - the prop will be called domains
 - domains will be an array of objects
-- the object will have the shape of {
+- the object will have the shape of
+
+```js
+{
   domain: string,
   registrar: string,
   status: string,
   created_at: string,
   expires_at: string,
   nameservers: string[],
-  updated_at: string,
-  }
+  updated_at: string
+}
+```
 
 Requirements:
 If there are no domains:
