@@ -242,7 +242,7 @@ GET /api/domains?page=number&pageSize=number&domain=string&registrar=string&stat
 
 ### Pagination considerations
 
-I would use page-based pagination for this project:
+I would use page-based pagination for this project (see above filtering strategy for limit/offset):
 
 - `page`
 - `pageSize`
