@@ -60,7 +60,7 @@ Responsible for:
 
 - rendering the domain list
 - showing an empty state
-- emitting `select-domain` when a row "View" button is selected
+- emitting `select-domain` when a row "View" button is clicked
 
 ### `DomainDetailsDrawer.vue`
 
@@ -187,6 +187,8 @@ GET /api/domains
 - `domain`: the string to filter on domain name
 - `registrar`: the string to filter on registrar name
 - `status`: the enum (active, clientHold, pendingTransfer) to filter on status
+
+NOTE: Mostly likely with relational databases, values like statuses and registrars probably will have their own tables. Instead of passing a string, we might need to pass in a status ID or registrar ID.
 
 ### Example request
 
