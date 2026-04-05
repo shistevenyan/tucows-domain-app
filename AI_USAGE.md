@@ -191,15 +191,19 @@ DomainDetailsDrawer component will pass in one prop:
 
 - the prop will be called "domain"
 - "domain" can be an object or null
-- the object will have the shape of {
+- the object will have the shape of
+
+```js
+{
   domain: string,
   registrar: string,
   status: string,
   created_at: string,
   expires_at: string,
   updated_at: string,
-  nameservers: string[],
-  }
+  nameservers: string[]
+}
+```
 
 Requirements:
 If there is no domain:
