@@ -16,7 +16,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['update-filters', 'clear-filters'])
+const emit = defineEmits(['update-filters'])
 
 const safeFilters = computed(() => ({
   domain: props.filters?.domain ?? '',
@@ -24,23 +24,24 @@ const safeFilters = computed(() => ({
   status: props.filters?.status ?? '',
 }))
 
+// emits to parent the update-filter event with the changed filter key value
 function updateField(field, value) {
   emit('update-filters', { [field]: value })
 }
 </script>
 
 <template>
-  <section class="filters">
+  <section class="filter-bar">
     <input
-      class="filters__input"
+      class="filter-bar__control"
       type="text"
-      placeholder="Search domain"
+      placeholder="Search Domain On Enter"
       :value="safeFilters.domain"
-      @input="updateField('domain', $event.target.value)"
+      @keyup.enter="updateField('domain', $event.target.value)"
     />
 
     <select
-      class="filters__select"
+      class="filter-bar__control"
       :value="safeFilters.registrar"
       @change="updateField('registrar', $event.target.value)"
     >
@@ -51,7 +52,7 @@ function updateField(field, value) {
     </select>
 
     <select
-      class="filters__select"
+      class="filter-bar__control"
       :value="safeFilters.status"
       @change="updateField('status', $event.target.value)"
     >
@@ -62,3 +63,52 @@ function updateField(field, value) {
     </select>
   </section>
 </template>
+
+<style scoped>
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  padding: 1em;
+  border: 1px solid #dcdfe4;
+  border-radius: 12px;
+  background: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.filter-bar__control {
+  width: 100%;
+  min-height: 2.75em;
+  padding: 0.75em 0.875em;
+  border: 1px solid #cfd6df;
+  border-radius: 12px;
+  color: #1f2937;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.filter-bar__control:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.filter-bar__control::placeholder {
+  color: #9aa4b2;
+}
+
+/* horizontal layout on larger screens, vertical on smaller */
+@media (min-width: 768px) {
+  .filter-bar {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .filter-bar__control {
+    flex: 1;
+  }
+}
+</style>

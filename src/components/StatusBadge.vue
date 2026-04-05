@@ -4,78 +4,71 @@ import { computed } from 'vue'
 const props = defineProps({
   status: {
     type: String,
-    required: true,
+    default: '',
   },
 })
 
 const statusMap = {
   active: {
     label: 'Active',
-    className: 'status-badge status-badge--green',
+    className: 'badge--active',
   },
   pendingTransfer: {
     label: 'Pending Transfer',
-    className: 'status-badge status-badge--yellow',
+    className: 'badge--pending',
   },
   clientHold: {
     label: 'Client Hold',
-    className: 'status-badge status-badge--red',
+    className: 'badge--hold',
   },
 }
 
-const normalizedStatus = computed(() => {
-  const value = props.status?.trim()
-
-  if (!value) return null
-
-  const lower = value.toLowerCase()
-
-  if (lower === 'active') return 'active'
-  if (lower === 'pendingtransfer') return 'pendingTransfer'
-  if (lower === 'clienthold') return 'clientHold'
-
-  return null
-})
-
 const badgeData = computed(() => {
-  return normalizedStatus.value
-    ? statusMap[normalizedStatus.value]
-    : {
-        label: 'Unknown',
-        className: 'status-badge',
-      }
+  return (
+    statusMap[props.status] || {
+      label: 'Unknown',
+      className: 'badge--unknown',
+    }
+  )
 })
 </script>
 
 <template>
-  <span :class="badgeData.className">
+  <span class="badge" :class="badgeData.className">
     {{ badgeData.label }}
   </span>
 </template>
 
 <style scoped>
-.status-badge {
+.badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.6rem;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.25rem 0.75rem;
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  line-height: 1;
+  white-space: nowrap;
 }
 
-.status-badge--green {
+.badge--active {
   background-color: #dcfce7;
   color: #166534;
 }
 
-.status-badge--yellow {
-  background-color: #fef9c3;
-  color: #854d0e;
+.badge--pending {
+  background-color: #fef3c7;
+  color: #92400e;
 }
 
-.status-badge--red {
+.badge--hold {
   background-color: #fee2e2;
   color: #991b1b;
+}
+
+.badge--unknown {
+  background-color: #e5e7eb;
+  color: #374151;
 }
 </style>

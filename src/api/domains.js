@@ -1,4 +1,5 @@
-export const domainRecords = [
+// fake domain records data
+const domainRecords = [
   {
     domain: 'example.com',
     registrar: 'Registrar 1 Inc.',
@@ -27,12 +28,32 @@ export const domainRecords = [
     updated_at: '2026-03-28T18:05:00Z',
   },
   {
-    domain: 'missing.com',
-    registrar: 'Registrar 1 Inc.',
-    status: 'active',
+    domain: '',
+    registrar: '',
+    status: '',
     created_at: 'not a date',
-    expires_at: '2026-07-09T00:00:00Z',
+    expires_at: '',
     nameservers: [],
     updated_at: '',
   },
 ]
+
+// simulate fake loading
+function wait(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms)
+  })
+}
+
+// pass in {shouldFail: true} to simulate fake failure error
+export async function getDomains({ shouldFail = false } = {}) {
+  // fake loading delay
+  await wait(600)
+
+  // simulate fake failure error
+  if (shouldFail) {
+    throw new Error('Failed to fetch domain records')
+  }
+
+  return domainRecords
+}

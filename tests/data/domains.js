@@ -1,0 +1,38 @@
+export const sampleDomains = [
+  {
+    domain: 'test1.com',
+    registrar: 'Registrar A',
+    status: 'active',
+    created_at: '2020-01-01T00:00:00Z',
+    expires_at: '2030-01-01T00:00:00Z',
+    updated_at: '2024-01-01T00:00:00Z',
+    nameservers: ['ns1.test1.com', 'ns2.test1.com'],
+  },
+  {
+    domain: 'test2.io',
+    registrar: 'Registrar B',
+    status: 'pendingTransfer',
+    created_at: '2021-02-01T00:00:00Z',
+    expires_at: '2031-02-01T00:00:00Z',
+    updated_at: '2024-02-01T00:00:00Z',
+    nameservers: ['ns1.test2.io'],
+  },
+  {
+    domain: 'test3.net',
+    registrar: 'Registrar C',
+    status: 'clientHold',
+    created_at: '2022-03-01T00:00:00Z',
+    expires_at: '2032-03-01T00:00:00Z',
+    updated_at: '2024-03-01T00:00:00Z',
+    nameservers: [],
+  },
+  {
+    domain: '',
+    registrar: '',
+    status: 'not a real status',
+    created_at: '2022-03-01T00:00:00Z',
+    expires_at: '2032-03-01T00:00:00Z',
+    updated_at: '2024-03-01T00:00:00Z',
+    nameservers: [],
+  },
+]

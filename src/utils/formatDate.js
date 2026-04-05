@@ -1,4 +1,4 @@
-export function formatDate(value) {
+export default function formatDate(value) {
   if (typeof value !== 'string' || value.trim() === '') {
     return 'No Date'
   }

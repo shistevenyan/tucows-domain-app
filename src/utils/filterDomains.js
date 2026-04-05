@@ -1,4 +1,4 @@
-export function filterDomains(domains, filters) {
+export default function filterDomains(domains, filters) {
   return domains.filter((record) => {
     const matchesDomain =
       !filters.domain || record.domain.toLowerCase().includes(filters.domain.toLowerCase())
